@@ -1,0 +1,134 @@
+body {
+    background-color: #000000;
+}
+
+.Form1 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -200px;
+    outline: none;
+    background-color: #FBFBFB;
+    border-radius: 10px;
+    width: 400px;
+    height: 300px;
+}
+
+.Label1 {
+    color: #000000;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    left: 110px;
+    top: 30px;
+    width: 160px;
+    height: 25px;
+}
+
+.Editbox1 {
+    background: url(../images/close-envelope.png) no-repeat 10px 6px;
+    background-size: auto 50%;
+    padding-left: 30px;
+    border: #CCCCCC;
+    border-radius: 20px;
+    background-color: #DCDCDC;
+    color: #555555;
+    font-size: 14px;
+    outline: none;
+    position: absolute;
+    left: 40px;
+    top: 100px;
+    width: 290px;
+    height: 30px;
+}
+
+.Editbox2 {
+
+    background: url(../images/locked-padlock.png) no-repeat 10px 6px, url(../images/question.png) no-repeat 290px 8px;
+    background-size: auto 50%;
+    padding-left: 30px;
+    border: #FFFFFF;
+    border-radius: 20px;
+    background-color: #DCDCDC;
+    color: #555555;
+    outline: none;
+    font-size: 14px;
+
+    position: absolute;
+    left: 40px;
+    top: 150px;
+    width: 290px;
+    height: 30px;
+}
+
+.Button1 {
+    border: #00BFFF;
+    border-radius: 20px;
+    background-color: #00BFFF;
+    color: #FFFFFF;
+    font-size: 14px;
+
+    position: absolute;
+    left: 290px;
+    top: 200px;
+    width: 70px;
+    height: 30px;
+}
+
+.Hr {
+    position: fixed;
+    border: none;
+    background-color: #C0C0C0;
+    height: 2px;
+    left: 50%;
+    top: 50%;
+    margin-top: -70px;
+    margin-left: -200px;
+    width: 400px;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox] + label:before {
+    content: "\2714";
+    border: 0.1em solid #C0C0C0;
+    border-radius: 20px;
+    display: inline-block;
+    width: 1.1em;
+    height: 1.1em;
+    padding-left: 0.2em;
+    padding-bottom: 0.3em;
+    margin-right: 0.2em;
+    vertical-align: center;
+    color: transparent;
+}
+
+input[type=checkbox]:checked + label:before {
+    background-color: #00BFFF;
+    border-color: #00BFFF;
+    color: #fff;
+}
+
+.Checkbox {
+    position: absolute;
+    left: 45px;
+    top: 200px;
+    font-family: Arial;
+    font-size: 10px;
+
+}
+
+.Editbox1:focus {
+    background-color: burlywood
+}
+
+.Editbox2:focus {
+    background-color: burlywood
+}
+
+
+

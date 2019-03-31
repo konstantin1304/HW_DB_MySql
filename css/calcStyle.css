@@ -1,0 +1,131 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+
+    display: flex;
+    width: auto;
+    height: 100vh;
+    flex-direction: column;
+
+}
+
+.content {
+
+    flex: 1;
+    background-color: bisque;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.footer {
+
+    background-color: aqua;
+    height: 100px;
+}
+
+.calc {
+
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+
+}
+
+.calc_display {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+}
+
+.header {
+    background-color: blue;
+    height: 60px;
+}
+
+button {
+    height: 40px;
+    width: 80px;
+    margin: 4px;
+    padding: 0px, 10px;
+    font-size: 13px;
+    background-color: #d4d4d4;
+    border: 1px solid #b8b8b5;
+    text-align: center;
+}
+
+.number {
+    background-color: #f1f1f1;
+}
+
+.operationButton {
+
+    font-size: 20px;
+
+}
+
+.equally {
+    background-color: #4787ee;
+    font-size: 20px;
+    color: white;
+}
+
+.calc_display_memory {
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 4px;
+    margin-bottom: 0px;
+    font-size: 13px;
+    color: #757575;
+    text-align: right;
+    padding: 5px;
+    border: none;
+}
+
+.calc_display_text {
+
+    height: 50px;
+    width: 568px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 0px;
+    margin-bottom: 4px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+    padding: 10px
+}
+
+.calc_buttons-row {
+    display: flex;
+    width: 600px;
+    justify-content: space-around;
+}
+
+button:hover {
+    border: 1px solid #858584;
+}
+
+button:active {
+    border: 1px solid #4787ee;
+}
+
+.switchRadDeg:focus {
+    background: #4787ee
+}
+
+.switchRadDeg:active {
+    background: #e5e5e5;
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+    box-shadow: inset 0px 0px 5px #c1c1c1;
+}

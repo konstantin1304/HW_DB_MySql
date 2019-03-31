@@ -1,0 +1,233 @@
+body {
+    background-color: #483D8B;;
+}
+
+.Form1 {
+    position: absolute;
+    left: 270px;
+    top: 108px;
+    width: 430px;
+    height: 563px;
+    background-color: #00BFFF;
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -270px;
+    margin-left: -200px;
+}
+
+.Text1 {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 125px;
+    height: 19px;
+    color: #FFFFFF;
+    font-family: Arial;
+    font-size: 16px;
+    text-align: left;
+}
+
+.Text2 {
+    background-color: transparent;
+    border: 0px solid #000000;
+    text-align: left;
+    position: absolute;
+    left: 30px;
+    top: 109px;
+    width: 250px;
+    height: 19px;
+    color: #FFFFFF;
+    font-family: Arial;
+    font-size: 16px;
+}
+
+.Text3 {
+    background-color: transparent;
+    border: 0px solid #000000;
+    text-align: left;
+    position: absolute;
+    left: 30px;
+    top: 198px;
+    width: 252px;
+    height: 19px;
+    color: #FFFFFF;
+    font-family: Arial;
+    font-size: 16px;
+}
+
+.Text4 {
+    background-color: transparent;
+    border: 0px solid #000000;
+    text-align: left;
+    position: absolute;
+    left: 30px;
+    top: 286px;
+    width: 246px;
+    height: 19px;
+    color: #FFFFFF;
+    font-family: Arial;
+    font-size: 16px;
+}
+
+.Text5 {
+    background-color: transparent;
+    border: 0px solid #000000;
+    text-align: left;
+    position: absolute;
+    left: 30px;
+    top: 374px;
+    width: 252px;
+    height: 19px;
+    color: #FFFFFF;
+    font-family: Arial;
+    font-size: 16px;
+}
+
+.Button1 {
+    border: 1px solid #2E6DA4;
+    border-radius: 2px;
+    background-color: #FFFFFF;
+    color: #696969;
+    font-family: Arial;
+    font-weight: normal;
+    font-size: 19px;
+    position: absolute;
+    left: 30px;
+    top: 489px;
+    width: 370px;
+    height: 40px;
+}
+
+.Button1 {
+    background: #ededed;
+    border: 1px solid #ccc;
+    padding: 10px 30px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.Button1:hover {
+    background: #F0E68C;
+}
+
+.Button1:focus {
+    outline: none;
+}
+
+.Button1:focus {
+    background: #e5e5e5;
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+    box-shadow: inset 0px 0px 5px #c1c1c1;
+}
+
+.Editbox1 {
+    background: url(https://image.flaticon.com/icons/svg/236/236832.svg) no-repeat 3px 1px;
+    background-size: auto 90%;
+    padding-left: 35px;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    color: black;
+    font-family: Arial;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 24px;
+    padding: 4px 4px 4px 40px;
+    text-align: left;
+    position: absolute;
+    left: 30px;
+    top: 61px;
+    width: 325px;
+    height: 24px;
+}
+
+.Editbox2 {
+    background: url(https://image.flaticon.com/icons/svg/321/321817.svg) no-repeat 3px 1px;
+    background-size: auto 90%;
+    padding-left: 35px;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    color: black;
+    font-family: Arial;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 24px;
+    padding: 4px 4px 4px 40px;
+    text-align: left;
+    position: absolute;
+    left: 30px;
+    top: 143px;
+    width: 325px;
+    height: 24px;
+}
+
+.Editbox3 {
+    background: url(https://image.flaticon.com/icons/svg/265/265667.svg) no-repeat 3px 1px;
+    background-size: auto 90%;
+    padding-left: 35px;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    color: black;
+    font-family: Arial;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 24px;
+    padding: 4px 4px 4px 40px;
+    text-align: left;
+    position: absolute;
+    left: 30px;
+    top: 235px;
+    width: 325px;
+    height: 24px;
+}
+
+.Editbox4 {
+    background: url(https://image.flaticon.com/icons/svg/189/189091.svg) no-repeat 3px 1px;
+    background-size: auto 90%;
+    padding-left: 35px;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    color: black;
+    font-family: Arial;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 24px;
+    padding: 4px 4px 4px 40px;
+    text-align: left;
+    position: absolute;
+    left: 30px;
+    top: 318px;
+    width: 325px;
+    height: 24px;
+}
+
+.Editbox5 {
+    background: url(https://image.flaticon.com/icons/svg/189/189091.svg) no-repeat 3px 1px;
+    background-size: auto 90%;
+    padding-left: 35px;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    color: black;
+    font-family: Arial;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 24px;
+    padding: 4px 4px 4px 40px;
+    text-align: left;
+    position: absolute;
+    left: 30px;
+    top: 408px;
+    width: 325px;
+    height: 24px;
+}
+
+.input:focus {
+    border: 2px solid red;
+}
