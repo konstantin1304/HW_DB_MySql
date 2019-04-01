@@ -16,43 +16,59 @@ app.post("/registr", jsonParser, function (request, response) {
     if(!request.body) return response.sendStatus(400);
     console.log(request.body);
     const user = request.body;
-    var sql = "SELECT login FROM db_Users.tbUsers";
+    var sql = "SELECT login, email FROM db_Users.tbUsers";
     config.query(sql, function (err, result) {
         if (err) throw err;
         for (let i = 0; i < result.length; i++){
             if (user.login === result[i].login){
-                response.send("asdfasdf");
-               return;
+                response.send(`login exist`);
+                return;
+
             }
-            console.log(user.login);
+            if (user.email === result[i].email){
+                response.send(`email exist`);
+                return;
+            }
         }
+
         var sql = `INSERT INTO db_Users.tbUsers (login, password, email) VALUES ("${user.login}", "${user.password}", "${user.email}")`;
         config.query(sql, function (err, result) {
             if (err) throw err;
-            console.log("1 record inserted");
+            console.log("user inserted to database");
+        });
+        var sql = "SELECT id, login FROM db_Users.tbUsers";
+        config.query(sql, function (err, result) {
+            if (err) throw err;
+            for (let i = 0; i < result.length; i++){
+                if (result[i].login === user.login) {
+                    console.log(result[i].id);
+                    var sql = `INSERT INTO db_Users.tbUsersData (userID) VALUES ("${result[i].id}")`;
+                    config.query(sql, function (err, result) {
+                        if (err) throw err;
+                        console.log("user inserted to database");
+                    });
+                }
+            }
         });
     });
 });
 
 app.post("/login", jsonParser, function (request, response) {
     if(!request.body) return response.sendStatus(400);
-    //console.log(request.body);
     const user = request.body;
     var sql = "SELECT email, password FROM db_Users.tbUsers";
     config.query(sql, function (err, result) {
         if (err) throw err;
+        console.log("got email, password from client");
         for (let i = 0; i < result.length; i++){
             const dataFromDb = JSON.stringify({email:result[i].email, password:result[i].password});
             const innerData = JSON.stringify({email:user.email, password:user.password});
             if (dataFromDb === innerData) {
-                console.log("adfgsdfg");
-                //response.json('{NOTError:23}');
-                response.end("success");
+                response.send("isMatch");
                 return;
             }
-
         }
-        response.send("no success123");
+        response.send("noMatches");
     });
 });
 
@@ -71,7 +87,7 @@ config.connect(function(err) {
     });
     config.query("CREATE DATABASE IF NOT EXISTS db_Users", function (err, result) {
         if (err) throw err;
-        console.log("Database db_Users created");
+        console.log("Database db_Users created or exist");
     });
     config.query("USE db_Users", function (err, result) {
         if (err) throw err;
@@ -80,12 +96,12 @@ config.connect(function(err) {
     var sql = "CREATE TABLE IF NOT EXISTS tbUsers (id Int NOT NULL AUTO_INCREMENT, login CHAR(30), password CHAR(30), email VARCHAR(255), PRIMARY KEY (id))";
     config.query(sql, function (err, result) {
         if (err) throw err;
-        console.log("Table tbUsers created");
+        console.log("Table tbUsers created or exist");
     });
-    var sql = "CREATE TABLE IF NOT EXISTS tbUsersData (userDataId Int NOT NULL AUTO_INCREMENT, FirstName CHAR(30), LastName CHAR(30), age int, userID int, PRIMARY KEY (userDataId), FOREIGN KEY (userID) REFERENCES tbUsers(id))";
+    var sql = "CREATE TABLE IF NOT EXISTS tbUsersData (Id Int NOT NULL AUTO_INCREMENT, FirstName CHAR(30), LastName CHAR(30), age int, userID int, PRIMARY KEY (Id), FOREIGN KEY (userID) REFERENCES tbUsers(id))";
     config.query(sql, function (err, result) {
         if (err) throw err;
-        console.log("Table tbUsersData created");
+        console.log("Table tbUsersData created or exist");
     });
 });
 

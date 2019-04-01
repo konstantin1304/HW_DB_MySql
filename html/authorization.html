@@ -6,15 +6,15 @@
     <title>Authorization</title>
     <link href="../css/authorizeStyle.css" rel="stylesheet">
 </head>
-<form>
+<form id="formId">
     <div class="Form1">
 
         <label class="Label1">АВТОРИЗАЦИЯ</label>
         <hr class="Hr">
         <input id="authEmail" type="email" class="Editbox1" placeholder=" Email Address" required>
         <input id="authPass" type="password" class="Editbox2" placeholder=" Password" required>
-        <input id="submitLogin" type="submit" class="Button1" value="Войти">
-
+        <button type="button" id="submitLogin" class="Button1">Войти</button>
+        <button type="button" id="registration" class="Button2">Регистрация</button>
         <div class="Checkbox">
             <input type="checkbox" class="checkbox" id="checkbox"/>
             <label for="checkbox">ЗАПОМНИТЬ</label>

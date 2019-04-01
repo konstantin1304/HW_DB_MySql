@@ -123,8 +123,30 @@ body {
     box-shadow: inset 0px 0px 5px #c1c1c1;
 }
 
+.Button2 {
+    background: #ededed;
+    border: 1px solid #ccc;
+    padding: 30px 30px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.Button2:hover {
+    background: #F0E68C;
+}
+
+.Button3:focus {
+    outline: none;
+}
+
+.Button4:focus {
+    background: #e5e5e5;
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+    box-shadow: inset 0px 0px 5px #c1c1c1;
+}
 .Editbox1 {
-    background: url(https://image.flaticon.com/icons/svg/236/236832.svg) no-repeat 3px 1px;
+    /*background: url(https://image.flaticon.com/icons/svg/236/236832.svg) no-repeat 3px 1px;*/
     background-size: auto 90%;
     padding-left: 35px;
     border: 1px solid #CCCCCC;
@@ -145,7 +167,7 @@ body {
 }
 
 .Editbox2 {
-    background: url(https://image.flaticon.com/icons/svg/321/321817.svg) no-repeat 3px 1px;
+    /*background: url(https://image.flaticon.com/icons/svg/321/321817.svg) no-repeat 3px 1px;*/
     background-size: auto 90%;
     padding-left: 35px;
     border: 1px solid #CCCCCC;
@@ -166,7 +188,7 @@ body {
 }
 
 .Editbox3 {
-    background: url(https://image.flaticon.com/icons/svg/265/265667.svg) no-repeat 3px 1px;
+    /*background: url(https://image.flaticon.com/icons/svg/265/265667.svg) no-repeat 3px 1px;*/
     background-size: auto 90%;
     padding-left: 35px;
     border: 1px solid #CCCCCC;
@@ -187,7 +209,7 @@ body {
 }
 
 .Editbox4 {
-    background: url(https://image.flaticon.com/icons/svg/189/189091.svg) no-repeat 3px 1px;
+    /*background: url(https://image.flaticon.com/icons/svg/189/189091.svg) no-repeat 3px 1px;*/
     background-size: auto 90%;
     padding-left: 35px;
     border: 1px solid #CCCCCC;
@@ -208,7 +230,7 @@ body {
 }
 
 .Editbox5 {
-    background: url(https://image.flaticon.com/icons/svg/189/189091.svg) no-repeat 3px 1px;
+    /*background: url(https://image.flaticon.com/icons/svg/189/189091.svg) no-repeat 3px 1px;*/
     background-size: auto 90%;
     padding-left: 35px;
     border: 1px solid #CCCCCC;

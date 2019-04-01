@@ -14,20 +14,23 @@ btnSubmit.addEventListener('click', () => {
         confirmpass: confpass.value
     };
     if (userData.password != userData.confirmpass){
-        alert("FUCK YOU!!!");
+        alert("Passwords do not match"); //todo переделать оповещение
     }
     let xhr = new XMLHttpRequest();
         xhr.open('POST','http://localhost:3000/registr');
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.addEventListener("load", function () {
-        let a = xhr.response;
-        console.log(a);
-    });
-    xhr.onerror = ()=> alert('server error');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                console.log(xhr.responseText);
+            }
+        }
+    };
+    xhr.onerror = ()=> console.log('server error');
     xhr.send(JSON.stringify(userData));
 });
 
-console.log("gjhkhhjkhg");
+
 
 
 
