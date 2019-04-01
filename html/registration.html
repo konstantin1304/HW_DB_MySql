@@ -14,9 +14,9 @@
         <label class="registration-form__label-password"><strong>Password</strong></label>
         <label class="registration-form__label-retry-password"><strong>Confirm Password</strong></label>
         <input id="mail" type="email" class="registration-form__input-email" placeholder="Enter your Email" required>
-        <input id="login" type="text" class="registration-form__input-login" placeholder="Enter your Login" required>
-        <input id="password" type="password" class="registration-form__input-password" placeholder="Enter your Password" required>
-        <input id="confPass" type="password" class="registration-form__input-retry-password" placeholder="Confirm your Password" required>
+        <input id="login" type="text" class="registration-form__input-login" minlength="3" placeholder="Enter your Login" required>
+        <input id="password" type="password" class="registration-form__input-password" minlength="8" placeholder="Enter your Password" required>
+        <input id="confPass" type="password" class="registration-form__input-retry-password" minlength="8" placeholder="Confirm your Password" required>
         <button id="submitRegister" class="registration-form__confirm-button">Register</button>
     </div>
 </form>
