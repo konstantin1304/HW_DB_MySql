@@ -1,14 +1,11 @@
 body {
-    background-color: #483D8B;;
+    background-color: #483D8B;
 }
 
-.Form1 {
-    position: absolute;
-    left: 270px;
-    top: 108px;
+.registration-form {
     width: 430px;
     height: 563px;
-    background-color: #00BFFF;
+    background-color: #FFFFFF;
     border-radius: 10px;
     position: fixed;
     top: 50%;
@@ -17,239 +14,173 @@ body {
     margin-left: -200px;
 }
 
-.Text1 {
-    position: absolute;
-    left: 30px;
-    top: 30px;
-    width: 125px;
-    height: 19px;
-    color: #FFFFFF;
+.registration-form__header {
+    color: #00BFFF;
     font-family: Arial;
-    font-size: 16px;
-    text-align: left;
+    font-weight: bold;
+    font-size: 25px;
+    position: absolute;
+    left: 150px;
+    top: 40px;
 }
 
-.Text2 {
+.registration-form__label-email {
     background-color: transparent;
     border: 0px solid #000000;
     text-align: left;
     position: absolute;
     left: 30px;
     top: 109px;
-    width: 250px;
-    height: 19px;
-    color: #FFFFFF;
+    color: #013ADF;
     font-family: Arial;
     font-size: 16px;
 }
 
-.Text3 {
+.registration-form__label-login {
     background-color: transparent;
     border: 0px solid #000000;
     text-align: left;
     position: absolute;
     left: 30px;
-    top: 198px;
-    width: 252px;
-    height: 19px;
-    color: #FFFFFF;
+    top: 195px;
+    color: #013ADF;
     font-family: Arial;
     font-size: 16px;
 }
 
-.Text4 {
+.registration-form__label-password {
     background-color: transparent;
     border: 0px solid #000000;
     text-align: left;
     position: absolute;
     left: 30px;
-    top: 286px;
-    width: 246px;
-    height: 19px;
-    color: #FFFFFF;
+    top: 280px;
+    color: #013ADF;
     font-family: Arial;
     font-size: 16px;
 }
 
-.Text5 {
+.registration-form__label-retry-password {
     background-color: transparent;
     border: 0px solid #000000;
     text-align: left;
     position: absolute;
     left: 30px;
-    top: 374px;
-    width: 252px;
-    height: 19px;
-    color: #FFFFFF;
+    top: 365px;
+    color: #013ADF;
     font-family: Arial;
     font-size: 16px;
 }
 
-.Button1 {
+.registration-form__confirm-button {
     border: 1px solid #2E6DA4;
     border-radius: 2px;
-    background-color: #FFFFFF;
-    color: #696969;
+    background-color: #00BFFF;
+    color: #FFFFFF;
     font-family: Arial;
-    font-weight: normal;
-    font-size: 19px;
+    font-weight: bold;
+    font-size: 20px;
     position: absolute;
     left: 30px;
     top: 489px;
     width: 370px;
     height: 40px;
-}
-
-.Button1 {
-    background: #ededed;
     border: 1px solid #ccc;
     padding: 10px 30px;
-    border-radius: 3px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
-.Button1:hover {
+.registration-form__confirm-button:hover {
     background: #F0E68C;
+    color: #696969;
 }
 
-.Button1:focus {
+.registration-form__confirm-button:focus {
     outline: none;
-}
-
-.Button1:focus {
     background: #e5e5e5;
     -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
     box-shadow: inset 0px 0px 5px #c1c1c1;
 }
 
-.Button2 {
-    background: #ededed;
-    border: 1px solid #ccc;
-    padding: 30px 30px;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.Button2:hover {
-    background: #F0E68C;
-}
-
-.Button3:focus {
-    outline: none;
-}
-
-.Button4:focus {
-    background: #e5e5e5;
-    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
-    -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
-    box-shadow: inset 0px 0px 5px #c1c1c1;
-}
-.Editbox1 {
-    /*background: url(https://image.flaticon.com/icons/svg/236/236832.svg) no-repeat 3px 1px;*/
+.registration-form__input-email {
+    background: url(../images/close-envelope.png) no-repeat 3px 1px;
     background-size: auto 90%;
     padding-left: 35px;
     border: 1px solid #CCCCCC;
-    border-radius: 4px;
-    background-color: #FFFFFF;
-    color: black;
+    border-radius: 10px;
+    background-color: #CCCCCC;
+    color: #555555;
     font-family: Arial;
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 24px;
-    padding: 4px 4px 4px 40px;
-    text-align: left;
-    position: absolute;
-    left: 30px;
-    top: 61px;
-    width: 325px;
-    height: 24px;
-}
-
-.Editbox2 {
-    /*background: url(https://image.flaticon.com/icons/svg/321/321817.svg) no-repeat 3px 1px;*/
-    background-size: auto 90%;
-    padding-left: 35px;
-    border: 1px solid #CCCCCC;
-    border-radius: 4px;
-    background-color: #FFFFFF;
-    color: black;
-    font-family: Arial;
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 24px;
+    font-size: 15px;
     padding: 4px 4px 4px 40px;
     text-align: left;
     position: absolute;
     left: 30px;
     top: 143px;
     width: 325px;
-    height: 24px;
+    height: 25px;
 }
 
-.Editbox3 {
-    /*background: url(https://image.flaticon.com/icons/svg/265/265667.svg) no-repeat 3px 1px;*/
+.registration-form__input-login {
+    background: url(../images/user-shape.png) no-repeat 3px 1px;
     background-size: auto 90%;
     padding-left: 35px;
     border: 1px solid #CCCCCC;
-    border-radius: 4px;
-    background-color: #FFFFFF;
-    color: black;
+    border-radius: 10px;
+    background-color: #CCCCCC;
+    color: #555555;
     font-family: Arial;
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 24px;
+    font-size: 15px;
     padding: 4px 4px 4px 40px;
     text-align: left;
     position: absolute;
     left: 30px;
-    top: 235px;
+    top: 228px;
     width: 325px;
-    height: 24px;
+    height: 25px;
 }
 
-.Editbox4 {
-    /*background: url(https://image.flaticon.com/icons/svg/189/189091.svg) no-repeat 3px 1px;*/
+.registration-form__input-password {
+    background: url(../images/locked-padlock.png) no-repeat 3px 1px;
     background-size: auto 90%;
     padding-left: 35px;
     border: 1px solid #CCCCCC;
-    border-radius: 4px;
-    background-color: #FFFFFF;
-    color: black;
+    border-radius: 10px;
+    background-color: #CCCCCC;
+    color: #555555;
     font-family: Arial;
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 24px;
+    font-size: 15px;
     padding: 4px 4px 4px 40px;
     text-align: left;
     position: absolute;
     left: 30px;
-    top: 318px;
+    top: 313px;
     width: 325px;
-    height: 24px;
+    height: 25px;
 }
 
-.Editbox5 {
-    /*background: url(https://image.flaticon.com/icons/svg/189/189091.svg) no-repeat 3px 1px;*/
+.registration-form__input-retry-password {
+    background: url(../images/locked-padlock.png) no-repeat 3px 1px;
     background-size: auto 90%;
     padding-left: 35px;
     border: 1px solid #CCCCCC;
-    border-radius: 4px;
-    background-color: #FFFFFF;
-    color: black;
+    border-radius: 10px;
+    background-color: #CCCCCC;
+    color: #555555;
     font-family: Arial;
     font-weight: normal;
-    font-size: 13px;
-    line-height: 24px;
+    font-size: 15px;
     padding: 4px 4px 4px 40px;
     text-align: left;
     position: absolute;
     left: 30px;
-    top: 408px;
+    top: 398px;
     width: 325px;
-    height: 24px;
+    height: 25px;
 }
 
-.input:focus {
+input:focus {
     border: 2px solid red;
 }

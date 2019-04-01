@@ -1,28 +1,24 @@
 <!doctype html>
 <html>
-
 <head>
     <meta charset="utf-8">
-    <title>Authorization</title>
+    <title>Authorization Page</title>
     <link href="../css/authorizeStyle.css" rel="stylesheet">
 </head>
-<form id="formId">
-    <div class="Form1">
-
-        <label class="Label1">АВТОРИЗАЦИЯ</label>
-        <hr class="Hr">
-        <input id="authEmail" type="email" class="Editbox1" placeholder=" Email Address" required>
-        <input id="authPass" type="password" class="Editbox2" placeholder=" Password" required>
-        <button type="button" id="submitLogin" class="Button1">Войти</button>
-        <button type="button" id="registration" class="Button2">Регистрация</button>
-        <div class="Checkbox">
-            <input type="checkbox" class="checkbox" id="checkbox"/>
-            <label for="checkbox">ЗАПОМНИТЬ</label>
-        </div>
-
+<body>
+<form>
+    <div class="authorization-form">
+        <label class="authorization-form__header">Authorization</label>
+        <input id="authEmail" type="email" class="authorization-form__input-email" placeholder="Email Address" required>
+        <input id="authPass" type="password" class="authorization-form__input-password" placeholder="Password" required>
+        <button id="submitLogin" class="authorization-form__confirm-button">Enter</button>
+<!--        <div class="remember-checkbox">-->
+<!--            <input type="checkbox" class="remember-checkbox__checkbox" id="checkbox"/>-->
+<!--            <label for="checkbox">Remember your login and password</label>-->
+<!--        </div>-->
+        <button id="regLogin" class="authorization-form__registration-button">Register</button>
     </div>
 </form>
 <script src="../src/authorization.js"></script>
 </body>
-
 </html>

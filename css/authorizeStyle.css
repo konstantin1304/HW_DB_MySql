@@ -1,42 +1,38 @@
 body {
-    background-color: #000000;
+    background-color: #483D8B;
 }
 
-.Form1 {
+.authorization-form {
     position: fixed;
     top: 50%;
     left: 50%;
     margin-top: -150px;
     margin-left: -200px;
-    outline: none;
-    background-color: #FBFBFB;
+    background-color: #FFFFFF;
     border-radius: 10px;
     width: 400px;
     height: 300px;
 }
 
-.Label1 {
-    color: #000000;
+.authorization-form__header {
+    color: #00BFFF;
     font-family: Arial;
     font-weight: bold;
     font-size: 20px;
     position: absolute;
-    left: 110px;
-    top: 30px;
-    width: 160px;
-    height: 25px;
+    left: 140px;
+    top: 40px;
 }
 
-.Editbox1 {
+.authorization-form__input-email {
     background: url(../images/close-envelope.png) no-repeat 10px 6px;
     background-size: auto 50%;
     padding-left: 30px;
     border: #CCCCCC;
     border-radius: 20px;
-    background-color: #DCDCDC;
+    background-color: #CCCCCC;
     color: #555555;
     font-size: 14px;
-    outline: none;
     position: absolute;
     left: 40px;
     top: 100px;
@@ -44,18 +40,15 @@ body {
     height: 30px;
 }
 
-.Editbox2 {
-
+.authorization-form__input-password {
     background: url(../images/locked-padlock.png) no-repeat 10px 6px, url(../images/question.png) no-repeat 290px 8px;
     background-size: auto 50%;
     padding-left: 30px;
-    border: #FFFFFF;
+    border: #CCCCCC;
     border-radius: 20px;
-    background-color: #DCDCDC;
+    background-color: #CCCCCC;
     color: #555555;
-    outline: none;
     font-size: 14px;
-
     position: absolute;
     left: 40px;
     top: 150px;
@@ -63,72 +56,41 @@ body {
     height: 30px;
 }
 
-.Button1 {
+.authorization-form__confirm-button {
     border: #00BFFF;
     border-radius: 20px;
     background-color: #00BFFF;
     color: #FFFFFF;
     font-size: 14px;
-
     position: absolute;
-    left: 290px;
+    left: 260px;
     top: 200px;
-    width: 70px;
+    width: 100px;
     height: 30px;
+    font-weight: bold;
+    text-align: center;
 }
 
-.Hr {
-    position: fixed;
-    border: none;
-    background-color: #C0C0C0;
-    height: 2px;
-    left: 50%;
-    top: 50%;
-    margin-top: -70px;
-    margin-left: -200px;
-    width: 400px;
-}
-
-input[type=checkbox] {
-    display: none;
-}
-
-input[type=checkbox] + label:before {
-    content: "\2714";
-    border: 0.1em solid #C0C0C0;
+.authorization-form__registration-button {
+    border: #00BFFF;
     border-radius: 20px;
-    display: inline-block;
-    width: 1.1em;
-    height: 1.1em;
-    padding-left: 0.2em;
-    padding-bottom: 0.3em;
-    margin-right: 0.2em;
-    vertical-align: center;
-    color: transparent;
-}
-
-input[type=checkbox]:checked + label:before {
     background-color: #00BFFF;
-    border-color: #00BFFF;
-    color: #fff;
-}
-
-.Checkbox {
+    color: #FFFFFF;
     position: absolute;
-    left: 45px;
+    left: 40px;
     top: 200px;
     font-family: Arial;
-    font-size: 10px;
-
+    font-size: 14px;
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    text-align: center;
 }
 
-.Editbox1:focus {
+.authorization-form__input-email:focus {
     background-color: burlywood
 }
 
-.Editbox2:focus {
+.authorization-form__input-password:focus {
     background-color: burlywood
 }
-
-
-
