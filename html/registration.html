@@ -1,29 +1,25 @@
 <!doctype html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <title>Registration Page</title>
     <link href="../css/regStyle.css" rel="stylesheet">
 </head>
-
 <body>
-<form><!--todo переход-->
-    <div class="Form1">
-        <div  class="Text1"><strong>Your Name</strong></div>
-        <div  class="Text2"><strong>Your Email</strong></div>
-        <div  class="Text3"><strong>Your Username</strong></div>
-        <div  class="Text4"><strong>Password</strong></div>
-        <div  class="Text5"><strong>Confirm Password</strong></div>
-        <input id="userName" type="text" class="Editbox1 input" placeholder="Enter your Name">
-        <input id="mail" type="email" class="Editbox2 input" placeholder="Enter your Email" required>
-        <input id="login" type="text" class="Editbox3 input" placeholder="Enter your Username" required>
-        <input id="passw" type="password" class="Editbox4 input" placeholder="Enter your Password" required>
-        <input id="confPass" type="password" class="Editbox5 input" placeholder="Confirm your Password" required>
-        <input id="submitRegistr" type="submit" class="Button1" value="Register">
+<form>
+    <div class="registration-form">
+        <label class="registration-form__header">Registration</label>
+        <label class="registration-form__label-email"><strong>Your Email</strong></label>
+        <label class="registration-form__label-login"><strong>Your Login</strong></label>
+        <label class="registration-form__label-password"><strong>Password</strong></label>
+        <label class="registration-form__label-retry-password"><strong>Confirm Password</strong></label>
+        <input id="mail" type="email" class="registration-form__input-email" placeholder="Enter your Email" required>
+        <input id="login" type="text" class="registration-form__input-login" placeholder="Enter your Login" required>
+        <input id="password" type="password" class="registration-form__input-password" placeholder="Enter your Password" required>
+        <input id="confPass" type="password" class="registration-form__input-retry-password" placeholder="Confirm your Password" required>
+        <button id="submitRegister" class="registration-form__confirm-button">Register</button>
     </div>
 </form>
 <script src="../src/registration.js"></script>
 </body>
-
 </html>
