@@ -11,6 +11,62 @@ const config = mysql.createConnection({
     user: "Kot",
     password: "11110000Kot",
 });
+app.get('/onload', (request, response) => {
+    let usersData = [];
+    var sql = "SELECT tbUsers.Id AS userId, tbUsers.login, tbUsers.password, tbUsersData.Id AS userDataId, tbUsersData.FirstName, tbUsersData.LastName, tbUsersData.AGE FROM db_Users.tbUsersData JOIN db_Users.tbUsers ON db_Users.tbUsersData.userID = db_Users.tbUsers.Id";
+    config.query(sql, function (err, result) {
+        if (err) throw err;
+        for (let i = 0; i < result.length; i++){
+            usersData.push(result[i]);
+            console.log(result[i]);
+        }
+        response.send(JSON.stringify(usersData));
+    });
+
+});
+
+app.get('/create', (request, response) => {
+    const user = request.body;
+    console.log(user);
+    var sql = `INSERT INTO db_Users.tbUsers (login, password) VALUES ("${user.login}", "${user.password}")`;
+    config.query(sql, function (err, result) {
+        if (err) throw err;
+    });
+    let lastInsertId;
+    var sql = `SELECT LAST_INSERT_ID()`;
+    config.query(sql, function (err, result) {
+        lastInsertId = result[0]['LAST_INSERT_ID()'];
+        console.log(lastInsertId);
+        if (err) throw err;
+        var sql = `INSERT INTO db_Users.tbUsersData (FirstName, LastName, AGE, userID) VALUES ("${user.firstName}", "${user.lastName}", "${user.age}", "${lastInsertId}")`;
+        config.query(sql, function (err, result) {
+            if (err) throw err;
+        });
+    });
+
+
+});
+
+app.get('/update', (request, response) => {
+    const user = request.body;
+    var sql = `INSERT INTO db_Users.tbUsers (login, password) VALUES ("{user.login}", "{user.password}")`;
+    config.query(sql, function (err, result) {
+        if (err) throw err;
+    });
+    let lastInsertId;
+    var sql = `SELECT LAST_INSERT_ID()`;
+    config.query(sql, function (err, result) {
+        lastInsertId = result[0]['LAST_INSERT_ID()'];
+        console.log(lastInsertId);
+        if (err) throw err;
+        var sql = `INSERT INTO db_Users.tbUsersData (FirstName, LastName, AGE, userID) VALUES ("{user.FirstName}", "{user.LastName}", "25", "${lastInsertId}")`;
+        config.query(sql, function (err, result) {
+            if (err) throw err;
+        });
+    });
+
+
+});
 
 app.post("/registr", jsonParser, function (request, response) {
     if(!request.body) return response.sendStatus(400);
@@ -23,7 +79,6 @@ app.post("/registr", jsonParser, function (request, response) {
             if (user.login === result[i].login){
                 response.send(`login exist`);
                 return;
-
             }
             if (user.email === result[i].email){
                 response.send(`email exist`);
@@ -40,11 +95,13 @@ app.post("/registr", jsonParser, function (request, response) {
         config.query(sql, function (err, result) {
             if (err) throw err;
             for (let i = 0; i < result.length; i++){
+                console.log(result)
                 if (result[i].login === user.login) {
                     console.log(result[i].id);
                     var sql = `INSERT INTO db_Users.tbUsersData (userID) VALUES ("${result[i].id}")`;
                     config.query(sql, function (err, result) {
                         if (err) throw err;
+                        response.send(`insertSuccess`);
                         console.log("user inserted to database");
                     });
                 }

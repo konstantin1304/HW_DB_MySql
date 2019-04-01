@@ -1,13 +1,13 @@
-const userName = document.getElementById("userName");
+//const userName = document.getElementById("userName");
 const mail = document.getElementById("mail");
 const login = document.getElementById("login");
-const pass = document.getElementById("passw");
+const pass = document.getElementById("password");
 const confpass = document.getElementById("confPass");
-const btnSubmit = document.getElementById("submitRegistr");
+const btnSubmit = document.getElementById("submitRegister");
 
 btnSubmit.addEventListener('click', () => {
     let userData = {
-        userName: userName.value,
+        //userName: userName.value,
         email: mail.value,
         login:login.value,
         password: pass.value,
@@ -22,6 +22,15 @@ btnSubmit.addEventListener('click', () => {
         xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
+                if (xhr.responseText === "login exist"){
+                    alert("login exist");
+                }
+                if (xhr.responseText === "email exist"){
+                    alert("email exist");
+                }
+                if (xhr.responseText === "insertSuccess"){
+                    window.location='registration.html';
+                }
                 console.log(xhr.responseText);
             }
         }

@@ -1,8 +1,7 @@
 const authEmail = document.getElementById("authEmail");
 const authPass = document.getElementById("authPass");
 const btnSubmitLogin = document.getElementById("submitLogin");
-const btnRegistration = document.getElementById("registration");
-let severAnsver = "";
+const btnRegistration = document.getElementById("regLogin");
 btnSubmitLogin.addEventListener('click', () => {
     let xhr = new XMLHttpRequest();
 
@@ -15,10 +14,10 @@ btnSubmitLogin.addEventListener('click', () => {
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
-                severAnsver = xhr.responseText;
+
                 if (xhr.responseText === "noMatches"){
                     //todo выдать сообщениe
-                    alert(severAnsver);
+                    alert(xhr.responseText);
                 }
                 if (xhr.responseText === "isMatch") {
                     window.location='http://www.google.com';

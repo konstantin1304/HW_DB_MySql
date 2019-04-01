@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homework_12</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+
+<body>
+<div class="header">
+    <div class="container">
+        <h1>Table from database</h1>
+    </div>
+</div>
+
+<div class="main">
+    <div class="row">
+        <div class="container">
+            <div id="dataForm" class="data__Form">
+                <div id="msgBox" class="msgBox"></div>
+                <div class="row">
+                    <input type="text" id="id" class="data__input" placeholder="id">
+                    <input type="text" id="login" class="data__input" placeholder="login">
+                    <input type="text" id="pass" class="data__input" placeholder="password">
+                    <input type="text" id="firstName" class="data__input" placeholder="first name">
+                    <input type="text" id="lastName" class="data__input" placeholder="last name">
+                    <input type="text" id="age" class="data__input" placeholder="email">
+
+                </div>
+                <div class="row rowButton">
+                    <button id="addStartBtn" class="data__button">Create</button>
+                    <button id="readBtn" class="data__button">Read</button>
+                    <!-- <button id="addMidBtn" class="data__button">Add to Middle</button> -->
+                    <!-- <button id="addEndBtn" class="data__button">Add to End</button> -->
+
+                    <button id="saveBtn" class="data__button">Save</button>
+                    <button id="updateBtn" class="data__button">Update</button>
+                    <button id="clearBtn" class="data__button">Clear</button>
+                    <button id="deleteBtn" class="data__button">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div id="data__Table" class="data__table">
+                <h2>Data Table</h2>
+                <div class="data__table-header">
+                    <div class="row">
+                        <div class="col-2">ID</div>
+                        <div class="col-4">Login</div>
+                        <div class="col-4">Passowrd</div>
+                        <div class="col-4">First Name</div>
+                        <div class="col-4">Last Name</div>
+                        <div class="col-4">Age</div>
+                        <div class="col-2">UserID</div>
+                    </div>
+                </div>
+                <div class="data__table-body" id="tableBody">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../src/indexTask2.js"></script>
+
+</body>
+
+</html>
