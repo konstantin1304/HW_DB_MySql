@@ -29,6 +29,20 @@ app.post('/createElement',jsonParser, function(request, response){
     if(!request.body) return response.sendStatus(400);
     const user = request.body;
     console.log(user);
+    var sql = "SELECT login, email FROM db_Users.tbUsers";
+    config.query(sql, function (err, result) {
+        if (err) throw err;
+        for (let i = 0; i < result.length; i++) {
+            if (user.login === result[i].login) {
+                response.send(`Login already exist`);
+                return;
+            }
+            if (user.email === result[i].email) {
+                response.send(`Email already exist`);
+                return;
+            }
+        }
+    });
     var sql = `INSERT INTO db_Users.tbUsers (login, password) VALUES ("${user.login}", "${user.password}")`;
     config.query(sql, function (err, result) {
         if (err) throw err;

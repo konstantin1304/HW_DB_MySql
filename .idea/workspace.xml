@@ -21,11 +21,10 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="82" column="63" lean-forward="true" selection-start-line="82" selection-start-column="63" selection-end-line="82" selection-end-column="63" />
+            <state relative-caret-position="247">
+              <caret line="42" column="13" lean-forward="true" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
               <folding>
                 <element signature="e#355#974#0" />
-                <element signature="e#968#1725#0" />
                 <element signature="e#1860#2500#0" />
                 <element signature="e#2524#3279#0" />
                 <element signature="e#5098#5798#0" />
@@ -45,8 +44,8 @@
       <file leaf-file-name="indexTask2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/indexTask2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="41" column="77" lean-forward="true" selection-start-line="41" selection-start-column="77" selection-end-line="41" selection-end-column="77" />
+            <state relative-caret-position="-148">
+              <caret line="41" column="69" selection-start-line="41" selection-start-column="69" selection-end-line="41" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -90,13 +89,11 @@
       <file leaf-file-name="indexTask2.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/indexTask2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="193" selection-start-line="193" selection-end-line="193" />
+            <state relative-caret-position="633">
+              <caret line="61" column="13" lean-forward="true" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
               <folding>
                 <element signature="n#!!block;n#onLoad#0" />
-                <element signature="n#!!block;n#f#0" />
                 <element signature="n#!!block;n#createDbElement#1" />
-                <element signature="e#2684#3353#0" />
                 <element signature="e#1937#2381#0" />
                 <element signature="n#!!block;n#checkIdInArr#0" />
                 <element signature="n#!!block;n#renderTable#0" />
@@ -136,9 +133,9 @@
       <find>createEntryToPlase</find>
       <find>passw</find>
       <find>msgb</find>
-      <find>msg</find>
       <find>id</find>
       <find>checkIdInArr</find>
+      <find>msg</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -271,7 +268,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84392000" />
+    <option name="totallyTimeSpent" value="87042000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -438,7 +435,6 @@
           <caret line="66" column="30" lean-forward="true" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="39" />
           <folding>
             <element signature="e#355#974#0" />
-            <element signature="e#968#1725#0" />
             <element signature="e#1860#2500#0" />
             <element signature="e#2524#3279#0" />
             <element signature="e#5098#5798#0" />
@@ -612,18 +608,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/indexTask2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="41" column="77" lean-forward="true" selection-start-line="41" selection-start-column="77" selection-end-line="41" selection-end-column="77" />
+        <state relative-caret-position="-148">
+          <caret line="41" column="69" selection-start-line="41" selection-start-column="69" selection-end-line="41" selection-end-column="69" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="82" column="63" lean-forward="true" selection-start-line="82" selection-start-column="63" selection-end-line="82" selection-end-column="63" />
+        <state relative-caret-position="247">
+          <caret line="42" column="13" lean-forward="true" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
           <folding>
             <element signature="e#355#974#0" />
-            <element signature="e#968#1725#0" />
             <element signature="e#1860#2500#0" />
             <element signature="e#2524#3279#0" />
             <element signature="e#5098#5798#0" />
@@ -634,13 +629,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/indexTask2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="193" selection-start-line="193" selection-end-line="193" />
+        <state relative-caret-position="633">
+          <caret line="61" column="13" lean-forward="true" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
           <folding>
             <element signature="n#!!block;n#onLoad#0" />
-            <element signature="n#!!block;n#f#0" />
             <element signature="n#!!block;n#createDbElement#1" />
-            <element signature="e#2684#3353#0" />
             <element signature="e#1937#2381#0" />
             <element signature="n#!!block;n#checkIdInArr#0" />
             <element signature="n#!!block;n#renderTable#0" />

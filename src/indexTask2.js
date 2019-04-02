@@ -44,19 +44,28 @@ function createDbElement() {
     data.firstName = firstName.value;
     data.lastName = lastName.value;
     data.age = age.value;
+    if(id.value != "") {
+        renderMsg(`Please, enter values without field "ID", it will be added automatically`);
+        return;
+    }
+    if(login.value === "" || passw.value === "" || firstName.value === "" || lastName.value === "" || age.value === ""){
+        renderMsg(`Please, fill all fields values without "ID", it will be added automatically`);
+        return;
+    }
     let xhr = new XMLHttpRequest();
     xhr.open('POST','http://localhost:3000/createElement',true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
-               console.log(xhr.responseText);
+                renderMsg(xhr.responseText);
             }
         }
     };
     xhr.onerror = ()=> console.log('server error');
     xhr.send(JSON.stringify(data));
-    console.log(data);
+    //console.log(data);
+    onLoad();
 }
 
 function updateDbElement() {
@@ -85,7 +94,14 @@ function updateDbElement() {
 function deleteDbElement() {
     let data = {};
     data.id = id.value;
-
+    if(id.value === "") {
+        renderMsg(`Please, enter values into field "ID"`);
+        return;
+    }
+    if(login.value !== "" || passw.value !== "" || firstName.value !== "" || lastName.value !== "" || age.value !== ""){
+        renderMsg(`Please, fill only field "ID"`);
+        return;
+    }
     let xhr = new XMLHttpRequest();
     xhr.open('POST','http://localhost:3000/delete',true);
     xhr.setRequestHeader('Content-Type', 'application/json');
