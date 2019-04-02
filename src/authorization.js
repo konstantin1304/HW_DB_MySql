@@ -29,6 +29,7 @@ btnSubmitLogin.addEventListener('click', () => {
 btnRegistration.addEventListener('click', () => {
     window.location='registration.html';
 });
+
 function renderMsg(msg) {
 
     if (msg) {

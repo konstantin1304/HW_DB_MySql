@@ -23,10 +23,10 @@ btnSubmit.addEventListener('click', () => {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
                 if (xhr.responseText === "login exist"){
-                    alert("login exist");
+                    renderMsg("Login is already exist");
                 }
                 if (xhr.responseText === "email exist"){
-                    alert("email exist");
+                    renderMsg("Email is already exist");
                 }
                 if (xhr.responseText === "insertSuccess"){
                     window.location='registration.html';
@@ -38,7 +38,14 @@ btnSubmit.addEventListener('click', () => {
     xhr.onerror = ()=> console.log('server error');
     xhr.send(JSON.stringify(userData));
 });
+function renderMsg(msg) {
 
+    if (msg) {
+        msgBox.innerText = msg;
+    } else {
+        msgBox.innerText = '';
+    }
+}
 
 
 

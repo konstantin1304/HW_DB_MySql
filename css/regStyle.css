@@ -184,3 +184,11 @@ body {
 input:focus {
     border: 2px solid red;
 }
+
+.msgBox {
+    top: 5em;
+    left: 0.8em;
+    position: absolute;
+    padding: 0 1em;
+    color: #ff0000;
+}

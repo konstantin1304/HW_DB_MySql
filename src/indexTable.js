@@ -1,26 +1,106 @@
 const tableBody = document.querySelector('#tableBody');
-
 const id = document.querySelector('#id');
 const login = document.querySelector('#login');
 const passw = document.querySelector('#pass');
 const firstName = document.querySelector('#firstName');
 const lastName = document.querySelector('#lastName');
 const age = document.querySelector('#age');
-//const userId = document.querySelector('#id');
-
 const readBtn = document.querySelector('#readBtn');
 const addStartBtn = document.querySelector('#addStartBtn');
 const saveBtn = document.querySelector('#saveBtn');
 const updateBtn = document.querySelector('#updateBtn');
 const clearBtn = document.querySelector('#clearBtn');
 const deleteBtn = document.querySelector('#deleteBtn');
+const logoHello = document.querySelector('#logout');
 
 let dataArr = [];
 
 window.onload = function(){
-   onLoad();
+    onLoad();
+    onLoadLogData()
 };
+
+//  MODEL
+function delEntry(indArr) {
+    dataArr.splice(indArr, 1);
+}
+/*
+function checkID() {
+    
+    let check = false;
+    
+    if (isNaN(id.value) || !id.value.trim() || parseInt(id.value) !== +id.value) {
+        renderMsg(`ID must to be an integer number`);
+        return true;
+    }
+    
+    dataArr.forEach((entry) => {
+        if (entry.id === id.value) {
+            renderMsg(`ID ${id.value} already used. Please enter an unique ID.`);
+            check = true;
+        }
+    });
+    return check;
+}
+*/
+function checkIdInArr(id) {
+    for (var i = 0; i < dataArr.length; i++) {
+        if (dataArr[i].id == id) {
+            return i;
+        }
+    }
+    return false;
+}
+
+// VIEW
+function renderTable() {
+    var insertData = '';
+    
+    for (var i = 0; i < dataArr.length; i++) {
+        insertData += '<div class="row">\n<div class="col-2">'.concat(dataArr[i].userId, '</div>\n<div class="col-4">').concat(dataArr[i].login, '</div>\n<div class="col-4">').concat(dataArr[i].password, '</div>\n<div class="col-4">').concat(dataArr[i].FirstName, '</div>\n<div class="col-4">').concat(dataArr[i].LastName, '</div>\n<div class="col-4">').concat(dataArr[i].AGE, '</div>\n<div class="col-2">').concat(dataArr[i].userDataId, '</div>\n</div>');
+    }
+    
+    tableBody.innerHTML = insertData;
+    return true;
+}
+function renderMsg(msg) {
+    
+    if (msg) {
+        msgBox.innerText = msg;
+    } else {
+        msgBox.innerText = '';
+    }
+}
+
+
+// CONTROLLER
+function logout() {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://localhost:3000/logout', true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                  console.log(responseText);
+            }
+        }
+    };
+    xhr.send();
+    window.location='authorization.html';
+}
 //Load from DB
+
+function onLoadLogData() {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://localhost:3000/onloadlogin', true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                document.getElementById("logoId").innerHTML += xhr.responseText
+            }
+        }
+    };
+    xhr.send();
+}
 function onLoad() {
     let xhr = new XMLHttpRequest();
     xhr.open('GET', 'http://localhost:3000/onload', true);
@@ -120,78 +200,10 @@ function deleteDbElement() {
     xhr.send(JSON.stringify(data));
     console.log(data);
 }
-
-
-
-//  MODEL
-
-function delEntry(indArr) {
-    dataArr.splice(indArr, 1);
-}
-
-/*
-function checkID() {
-    
-    let check = false;
-    
-    if (isNaN(id.value) || !id.value.trim() || parseInt(id.value) !== +id.value) {
-        renderMsg(`ID must to be an integer number`);
-        return true;
-    }
-    
-    dataArr.forEach((entry) => {
-        if (entry.id === id.value) {
-            renderMsg(`ID ${id.value} already used. Please enter an unique ID.`);
-            check = true;
-        }
-    });
-    return check;
-}
-*/
-
-function checkIdInArr(id) {
-    for (var i = 0; i < dataArr.length; i++) {
-        if (dataArr[i].id == id) {
-            return i;
-        }
-    }
-    return false;
-}
-
-// VIEW
-
-function renderTable() {
-    var insertData = '';
-    
-    for (var i = 0; i < dataArr.length; i++) {
-        insertData += '<div class="row">\n<div class="col-2">'.concat(dataArr[i].userId, '</div>\n<div class="col-4">').concat(dataArr[i].login, '</div>\n<div class="col-4">').concat(dataArr[i].password, '</div>\n<div class="col-4">').concat(dataArr[i].FirstName, '</div>\n<div class="col-4">').concat(dataArr[i].LastName, '</div>\n<div class="col-4">').concat(dataArr[i].AGE, '</div>\n<div class="col-2">').concat(dataArr[i].userDataId, '</div>\n</div>');
-    }
-    
-    tableBody.innerHTML = insertData;
-    return true;
-}
-
-
-
-function renderMsg(msg) {
-    
-    if (msg) {
-        msgBox.innerText = msg;
-    } else {
-        msgBox.innerText = '';
-    }
-}
-
-
-// CONTROLLER
-
-//READ
+//READ FROM DB
 function readBtnEvent() {
     onLoad();
 }
-
-
-
 //SAVE
 function saveToLS() {
     onLoad();
@@ -199,7 +211,6 @@ function saveToLS() {
     renderTable();
     renderMsg(`Data was saved to LocalStorage.`);
 }
-
 //UPDATE
 function update() {
     
@@ -210,7 +221,6 @@ function update() {
     (age.value === '') ? dataArr[indArr].age = user.age : dataArr[indArr].age = age.value;
     renderTable();
 }
-
 //CLEAR
 function clearAll() {
     localStorage.clear();
@@ -224,5 +234,5 @@ readBtn.addEventListener('click', readBtnEvent);
 
 saveBtn.addEventListener('click', saveToLS);
 clearBtn.addEventListener('click', clearAll);
-
+logoHello.addEventListener('click', logout);
 

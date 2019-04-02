@@ -11,7 +11,11 @@ const config = mysql.createConnection({
     user: "Kot",
     password: "11110000Kot",
 });
-
+let loginData = {};
+app.get('/logout', (request, response) => {
+    loginData = {};
+    response.send("logout");
+});
 app.get('/onload', (request, response) => {
     let usersData = [];
     var sql = "SELECT tbUsers.Id AS userId, tbUsers.login, tbUsers.password, tbUsersData.Id AS userDataId, tbUsersData.FirstName, tbUsersData.LastName, tbUsersData.AGE FROM db_Users.tbUsersData JOIN db_Users.tbUsers ON db_Users.tbUsersData.userID = db_Users.tbUsers.Id";
@@ -24,6 +28,11 @@ app.get('/onload', (request, response) => {
 });
 
 });
+app.get('/onloadlogin', (request, response) => {
+    console.log(loginData);
+    response.send(JSON.stringify(loginData.login));
+});
+
 app.post('/createElement',jsonParser, function(request, response){
     if(!request.body) return response.sendStatus(400);
     const user = request.body;
@@ -177,7 +186,7 @@ app.post("/registr", jsonParser, function (request, response) {
 app.post("/login", jsonParser, function (request, response) {
     if(!request.body) return response.sendStatus(400);
     const user = request.body;
-    var sql = "SELECT email, password FROM db_Users.tbUsers";
+    var sql = "SELECT login, email, password FROM db_Users.tbUsers";
     config.query(sql, function (err, result) {
         if (err) throw err;
         console.log("got email, password from client");
@@ -185,6 +194,9 @@ app.post("/login", jsonParser, function (request, response) {
             const dataFromDb = JSON.stringify({email:result[i].email, password:result[i].password});
             const innerData = JSON.stringify({email:user.email, password:user.password});
             if (dataFromDb === innerData) {
+                //console.log(result[i].login);
+                loginData = {login : result[i].login};
+                console.log(loginData);
                 response.send("isMatch");
                 return;
             }
@@ -192,7 +204,7 @@ app.post("/login", jsonParser, function (request, response) {
         response.send("noMatches");
     });
 });
-
+console.log(loginData);
 
 app.use(express.static('public'));
 
