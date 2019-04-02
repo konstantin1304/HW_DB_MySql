@@ -19,10 +19,9 @@ app.get('/onload', (request, response) => {
         if (err) throw err;
         for (let i = 0; i < result.length; i++){
             usersData.push(result[i]);
-            console.log(result[i]);
         }
         response.send(JSON.stringify(usersData));
-    });
+});
 
 });
 app.post('/createElement',jsonParser, function(request, response){
@@ -62,17 +61,56 @@ app.post('/createElement',jsonParser, function(request, response){
 app.post('/update', jsonParser, function (request, response) {
     if(!request.body) return response.sendStatus(400);
     const user = request.body;
+    console.log("UPDATE");
     console.log(user);
-    var sql = `UPDATE db_Users.tbUsers SET login = "${user.login}", password = "${user.password}" WHERE id = "${+user.id}"`;
+    var sql = "SELECT login, email FROM db_Users.tbUsers";
     config.query(sql, function (err, result) {
         if (err) throw err;
-        //response.send("noMatches");
+        for (let i = 0; i < result.length; i++) {
+            if (user.login === result[i].login) {
+                response.send(`Login already exist`);
+                return;
+            }
+        }
     });
-    var sql = `UPDATE db_Users.tbUsersData SET FirstName = "${user.firstName}", LastName = "${user.lastName}", age = "${user.age}"  WHERE userID = "${+user.id}"`;
+    var sql = "SELECT tbUsers.Id AS userId, tbUsers.login, tbUsers.password, tbUsersData.Id AS userDataId, tbUsersData.FirstName, tbUsersData.LastName, tbUsersData.AGE FROM db_Users.tbUsersData JOIN db_Users.tbUsers ON db_Users.tbUsersData.userID = db_Users.tbUsers.Id";
     config.query(sql, function (err, result) {
         if (err) throw err;
-        response.send("noMatches");
+        for (let i = 0; i < result.length; i++){
+            if(result[i].userId === +user.id){
+
+                if(user.login === ''){
+                    console.log(result[i].login);
+                    user.login = result[i].login;
+                }
+                if(user.password === ''){
+                    user.password = result[i].password;
+                }
+                if(user.firstName === ''){
+                    user.firstName = result[i].FirstName;
+                }
+                if(user.lastName === ''){
+                    user.lastName = result[i].LastName;
+                }
+                if(user.age === ''){
+                    user.age = result[i].AGE;
+                }
+
+            }
+        }
+        var sql = `UPDATE db_Users.tbUsers SET login = "${user.login}", password = "${user.password}" WHERE id = "${+user.id}"`;
+        config.query(sql, function (err, result) {
+            if (err) throw err;
+            //response.send("noMatches");
+        });
+        var sql = `UPDATE db_Users.tbUsersData SET FirstName = "${user.firstName}", LastName = "${user.lastName}", age = "${+user.age}"  WHERE userID = "${+user.id}"`;
+        config.query(sql, function (err, result) {
+            if (err) throw err;
+            //response.send("Update completed");
+        });
+        //response.send(JSON.stringify(usersData));
     });
+
 });
 app.post('/delete', jsonParser, function (request, response) {
     if(!request.body) return response.sendStatus(400);

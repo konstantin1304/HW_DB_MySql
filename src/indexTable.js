@@ -67,7 +67,7 @@ function createDbElement() {
     //console.log(data);
     onLoad();
 }
-
+//Update element in DB
 function updateDbElement() {
     let data = {};
     data.id = id.value;
@@ -76,6 +76,10 @@ function updateDbElement() {
     data.firstName = firstName.value;
     data.lastName = lastName.value;
     data.age = age.value;
+    if(id.value === "") {
+        renderMsg(`Please, enter value into field "ID"`);
+        return
+    }
     let xhr = new XMLHttpRequest();
     xhr.open('POST','http://localhost:3000/update',true);
     xhr.setRequestHeader('Content-Type', 'application/json');
@@ -90,7 +94,7 @@ function updateDbElement() {
     xhr.send(JSON.stringify(data));
     console.log(data);
 }
-
+//Delete element in DB
 function deleteDbElement() {
     let data = {};
     data.id = id.value;
@@ -183,22 +187,7 @@ function renderMsg(msg) {
 
 //READ
 function readBtnEvent() {
-    tableBody.innerHTML = '';
-    dataArr.length = 0;
-
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST','http://localhost:3000/load');
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify(dataArr));
-    xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4) {
-        if (xhr.status == 200) {
-            console.log(xhr.responseText);
-        }
-    }
-};
-    xhr.onerror = ()=> console.log('server error');
-    renderTable();
+    onLoad();
 }
 
 
@@ -231,6 +220,7 @@ function clearAll() {
 addStartBtn.addEventListener('click', createDbElement);
 updateBtn.addEventListener('click', updateDbElement);
 deleteBtn.addEventListener('click', deleteDbElement);
+readBtn.addEventListener('click', readBtnEvent);
 
 saveBtn.addEventListener('click', saveToLS);
 clearBtn.addEventListener('click', clearAll);

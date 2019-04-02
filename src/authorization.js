@@ -16,11 +16,10 @@ btnSubmitLogin.addEventListener('click', () => {
             if (xhr.status == 200) {
 
                 if (xhr.responseText === "noMatches"){
-                    //todo выдать сообщениe
-                    alert(xhr.responseText);
+                    renderMsg("Wrong password of login");
                 }
                 if (xhr.responseText === "isMatch") {
-                    window.location='http://www.google.com';
+                    window.location='indexTable.html';
                 }
             }
         }
@@ -30,3 +29,11 @@ btnSubmitLogin.addEventListener('click', () => {
 btnRegistration.addEventListener('click', () => {
     window.location='registration.html';
 });
+function renderMsg(msg) {
+
+    if (msg) {
+        msgBox.innerText = msg;
+    } else {
+        msgBox.innerText = '';
+    }
+}

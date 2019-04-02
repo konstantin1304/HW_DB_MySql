@@ -94,3 +94,10 @@ body {
 .authorization-form__input-password:focus {
     background-color: burlywood
 }
+.msgBox {
+    top: 5em;
+    left: 1.5em;
+    position: absolute;
+    padding: 0 1em;
+    color: #ff0000;
+}
