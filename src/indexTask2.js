@@ -6,6 +6,7 @@ const passw = document.querySelector('#pass');
 const firstName = document.querySelector('#firstName');
 const lastName = document.querySelector('#lastName');
 const age = document.querySelector('#age');
+//const userId = document.querySelector('#id');
 
 const readBtn = document.querySelector('#readBtn');
 const addStartBtn = document.querySelector('#addStartBtn');
@@ -13,11 +14,13 @@ const saveBtn = document.querySelector('#saveBtn');
 const updateBtn = document.querySelector('#updateBtn');
 const clearBtn = document.querySelector('#clearBtn');
 const deleteBtn = document.querySelector('#deleteBtn');
+
 let dataArr = [];
 
 window.onload = function(){
    onLoad();
 };
+//Load from DB
 function onLoad() {
     let xhr = new XMLHttpRequest();
     xhr.open('GET', 'http://localhost:3000/onload', true);
@@ -33,7 +36,7 @@ function onLoad() {
     };
     xhr.send();
 }
-
+//Create element in DB
 function createDbElement() {
     let data = {};
     data.login = login.value;
@@ -42,7 +45,30 @@ function createDbElement() {
     data.lastName = lastName.value;
     data.age = age.value;
     let xhr = new XMLHttpRequest();
-    xhr.open('POST','http://localhost:3000/create');
+    xhr.open('POST','http://localhost:3000/createElement',true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+               console.log(xhr.responseText);
+            }
+        }
+    };
+    xhr.onerror = ()=> console.log('server error');
+    xhr.send(JSON.stringify(data));
+    console.log(data);
+}
+
+function updateDbElement() {
+    let data = {};
+    data.id = id.value;
+    data.login = login.value;
+    data.password = passw.value;
+    data.firstName = firstName.value;
+    data.lastName = lastName.value;
+    data.age = age.value;
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST','http://localhost:3000/update',true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
@@ -53,10 +79,29 @@ function createDbElement() {
     };
     xhr.onerror = ()=> console.log('server error');
     xhr.send(JSON.stringify(data));
+    console.log(data);
+}
+
+function deleteDbElement() {
+    let data = {};
+    data.id = id.value;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST','http://localhost:3000/delete',true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                console.log(xhr.responseText);
+            }
+        }
+    };
+    xhr.onerror = ()=> console.log('server error');
+    xhr.send(JSON.stringify(data));
+    console.log(data);
 }
 
 
-let tempDataArr = [];
 
 //  MODEL
 
@@ -64,7 +109,7 @@ function delEntry(indArr) {
     dataArr.splice(indArr, 1);
 }
 
-
+/*
 function checkID() {
     
     let check = false;
@@ -82,7 +127,7 @@ function checkID() {
     });
     return check;
 }
-
+*/
 
 function checkIdInArr(id) {
     for (var i = 0; i < dataArr.length; i++) {
@@ -92,22 +137,6 @@ function checkIdInArr(id) {
     }
     return false;
 }
-
-
-function createEntryToPlase() {
-    let person = {};
-    
-    if (checkID()) {
-        return;
-    }
-    person.id = id.value;
-    person.login = login.value;
-    person.passw = passw.value;
-    person.age = age.value;
-    renderMsg();
-    return person;
-}
-
 
 // VIEW
 
@@ -122,12 +151,7 @@ function renderTable() {
     return true;
 }
 
-function clearInput() {
-    id.value = '';
-    login.value = '';
-    passw.value = '';
-    age.value = '';
-}
+
 
 function renderMsg(msg) {
     
@@ -161,31 +185,14 @@ function readBtnEvent() {
     renderTable();
 }
 
-//ADD TO START
-function addStartBtnEvent() {
-    let pers = createEntryToPlase();
-    if (pers) {
-        dataArr.unshift(pers);
-    }
-    renderTable();
-}
+
 
 //SAVE
 function saveToLS() {
-    
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST','http://localhost:3000/save');
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify(dataArr));
-    xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4) {
-        if (xhr.status == 200) {
-            console.log(xhr.responseText);
-        }
-    }
-};
-    xhr.onerror = ()=> console.log('server error');
-    renderMsg(`Data was saved to DataBase.`);
+    onLoad();
+    localStorage.setItem('myKey', JSON.stringify(dataArr));
+    renderTable();
+    renderMsg(`Data was saved to LocalStorage.`);
 }
 
 //UPDATE
@@ -201,40 +208,15 @@ function update() {
 
 //CLEAR
 function clearAll() {
-    
-    dataArr = [];
+    localStorage.clear();
     renderMsg(`LocalStorage and table was cleared.`);
-    renderTable();
 }
 
-//DELETE
-function deleteEntry() {
-    
-    let check = true;
-    
-    dataArr.forEach((entry, index) => {
-        if (entry.id === id.value) {
-            renderMsg(`User ID ${id.value} was deleted.`);
-            for (let i = index; i < dataArr.length; i++) {
-                dataArr[i] = dataArr[i + 1];
-            }
-            dataArr.length = dataArr.length - 1;
-            check = false;
-        }
-    });
-    
-    if (check) {
-        renderMsg(`The given ID ${id.value} was not found`);
-    }
-    
-    renderTable();
-}
-
-
-readBtn.addEventListener('click', readBtnEvent);
 addStartBtn.addEventListener('click', createDbElement);
+updateBtn.addEventListener('click', updateDbElement);
+deleteBtn.addEventListener('click', deleteDbElement);
+
 saveBtn.addEventListener('click', saveToLS);
-updateBtn.addEventListener('click', update);
 clearBtn.addEventListener('click', clearAll);
-deleteBtn.addEventListener('click', deleteEntry);
+
 

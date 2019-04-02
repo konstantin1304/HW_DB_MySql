@@ -11,6 +11,7 @@ const config = mysql.createConnection({
     user: "Kot",
     password: "11110000Kot",
 });
+
 app.get('/onload', (request, response) => {
     let usersData = [];
     var sql = "SELECT tbUsers.Id AS userId, tbUsers.login, tbUsers.password, tbUsersData.Id AS userDataId, tbUsersData.FirstName, tbUsersData.LastName, tbUsersData.AGE FROM db_Users.tbUsersData JOIN db_Users.tbUsers ON db_Users.tbUsersData.userID = db_Users.tbUsers.Id";
@@ -24,8 +25,8 @@ app.get('/onload', (request, response) => {
     });
 
 });
-
-app.get('/create', (request, response) => {
+app.post('/createElement',jsonParser, function(request, response){
+    if(!request.body) return response.sendStatus(400);
     const user = request.body;
     console.log(user);
     var sql = `INSERT INTO db_Users.tbUsers (login, password) VALUES ("${user.login}", "${user.password}")`;
@@ -43,30 +44,41 @@ app.get('/create', (request, response) => {
             if (err) throw err;
         });
     });
-
-
 });
-
-app.get('/update', (request, response) => {
+app.post('/update', jsonParser, function (request, response) {
+    if(!request.body) return response.sendStatus(400);
     const user = request.body;
-    var sql = `INSERT INTO db_Users.tbUsers (login, password) VALUES ("{user.login}", "{user.password}")`;
+    console.log(user);
+    var sql = `UPDATE db_Users.tbUsers SET login = "${user.login}", password = "${user.password}" WHERE id = "${+user.id}"`;
     config.query(sql, function (err, result) {
         if (err) throw err;
+        //response.send("noMatches");
     });
-    let lastInsertId;
-    var sql = `SELECT LAST_INSERT_ID()`;
+    var sql = `UPDATE db_Users.tbUsersData SET FirstName = "${user.firstName}", LastName = "${user.lastName}", age = "${user.age}"  WHERE userID = "${+user.id}"`;
     config.query(sql, function (err, result) {
-        lastInsertId = result[0]['LAST_INSERT_ID()'];
-        console.log(lastInsertId);
         if (err) throw err;
-        var sql = `INSERT INTO db_Users.tbUsersData (FirstName, LastName, AGE, userID) VALUES ("{user.FirstName}", "{user.LastName}", "25", "${lastInsertId}")`;
+        response.send("noMatches");
+    });
+});
+app.post('/delete', jsonParser, function (request, response) {
+    if(!request.body) return response.sendStatus(400);
+    const user = request.body;
+    var sql = "SELECT id FROM db_Users.tbUsersData";
+    config.query(sql, function (err, result) {
+        if (err) throw err;
+        var sql = `DELETE FROM db_users.tbUsersData where userID = ${user.id}`;
+        config.query(sql, function (err, result) {
+            if (err) throw err;
+        });
+        var sql = `DELETE FROM db_users.tbUsers where id = ${user.id}`;
         config.query(sql, function (err, result) {
             if (err) throw err;
         });
     });
-
-
 });
+
+
+
 
 app.post("/registr", jsonParser, function (request, response) {
     if(!request.body) return response.sendStatus(400);
@@ -128,6 +140,7 @@ app.post("/login", jsonParser, function (request, response) {
         response.send("noMatches");
     });
 });
+
 
 app.use(express.static('public'));
 
